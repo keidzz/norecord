@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c4iyexv13kn3x"]
+
+[ext_resource type="Script" uid="uid://djoqh1lgdijwd" path="res://mapa.gd" id="1_2jh14"]
+[ext_resource type="Script" uid="uid://br6b4uik4d7ds" path="res://fly/fly.gd" id="2_70f7c"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_70f7c"]
+sky_top_color = Color(0.118942775, 0.4611032, 0.7552949, 1)
+sky_horizon_color = Color(0.47763556, 0.67033124, 0.88903445, 1)
+
+[sub_resource type="Sky" id="Sky_q8ihy"]
+sky_material = SubResource("ProceduralSkyMaterial_70f7c")
+
+[sub_resource type="Environment" id="Environment_lrjei"]
+background_mode = 2
+sky = SubResource("Sky_q8ihy")
+
+[node name="Mapa" type="Node3D" unique_id=1403713790]
+script = ExtResource("1_2jh14")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1156501423]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=830061871]
+environment = SubResource("Environment_lrjei")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=241222101]
+
+[node name="FlyCamera" type="CharacterBody3D" parent="." unique_id=265682074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08441579, 11.6944065)
+script = ExtResource("2_70f7c")
+metadata/_custom_type_script = "uid://br6b4uik4d7ds"
